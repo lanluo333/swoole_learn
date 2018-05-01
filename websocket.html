@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <h1>Swoole-Websocket</h1>
+    <script>
+    	var wsUrl = "ws://47.95.242.162:9503";
+
+    	var websocket = new WebSocket(wsUrl);
+
+    	//实例对象的onOpen属性
+    	websocket.onopen = function(evt){
+    		websocket.send('hello');
+    		console.log('connect-socket-success');
+    	};
+
+    	//实例化onmessage
+    	websocket.onmessage = function(evt){
+    		console.log('ws-server-return-data:'+evt.data);
+    	}
+
+    	//close
+    	websocket.close = function(evt){
+    		console.log('close');
+    	}
+
+    	//error
+    	websocket.error = function(evt,e){
+    		console.log('error:'+evt.data);
+    	}
+    </script>
+    </body>
+</html>
